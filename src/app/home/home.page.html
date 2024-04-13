@@ -1,20 +1,32 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Personajes
     </ion-title>
+    <ion-chip>
+      <ion-avatar>
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <ion-label>Chip Avatar</ion-label>
+    </ion-chip>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  @for (personaje of personajes; track 'id') {
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img [alt]="personaje.name" [src]="personaje.image"/>
+      </ion-avatar>
+      <ion-label>
+        <h2>
+          {{personaje.name}}
+        </h2>
+      </ion-label>
+      <ion-chip slot="end">
+        {{personaje.species }}
+      </ion-chip>
+    </ion-item>
+  }
 </ion-content>
